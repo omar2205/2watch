@@ -48,6 +48,7 @@
       .from('ws')
       .update({
         data: { s: state.season, e: state.ep, t: state.time },
+        last_modified: now
       })
       .eq('id', id)
     goto('/')

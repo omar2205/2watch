@@ -5,6 +5,7 @@
   import { supabase, getInfo, getPoster } from '$lib/db.ts'
   import { list } from '$lib/store.ts'
   import Loading from '../components/Loading.svelte'
+  import Delete from '../components/Delete.svelte'
 
   const { id } = $page.params
 
@@ -15,7 +16,8 @@
   }
 
   let info,
-    loading = true
+    loading = true,
+    deleteAlertOpen = false
 
   onMount(async () => {
     // try local store first
@@ -48,11 +50,18 @@
       .from('ws')
       .update({
         data: { s: state.season, e: state.ep, t: state.time },
-        last_modified: now
+        last_modified: now,
       })
       .eq('id', id)
     goto('/')
   }
+
+  const deleteItem = async () => {
+    const { data, error } = await supabase.from('ws').delete().match({ id })
+    goto('/')
+  }
+
+  const cancel = () => (deleteAlertOpen = false)
 </script>
 
 {#if loading}
@@ -89,7 +98,22 @@
       class="rounded-md w-full p-2 my-4
 bg-violet-800 hover:bg-violet-700 
 hover:drop-shadow-xl active:bg-violet-800"
-      on:click={updateData}>update</button
+      on:click={updateData}
     >
+      update
+    </button>
+
+    <button
+      class="rounded-md w-full p-2 my-2
+bg-red-800/10 hover:bg-red-700 
+hover:drop-shadow-xl active:bg-red-800"
+      on:click={() => (deleteAlertOpen = true)}
+    >
+      delete
+    </button>
   </main>
+{/if}
+
+{#if deleteAlertOpen}
+  <Delete on:yes={deleteItem} on:cancel={cancel} />
 {/if}

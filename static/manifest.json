@@ -1,0 +1,12 @@
+{
+  "name": "2watch",
+  "description": "An extension to keep track of what you watched",
+  "manifest_version": 3,
+  "version": "2.0.0",
+  "permissions": ["activeTab"],
+  "action": {
+    "default_title": "2watch",
+    "default_icon": "icon.png",
+    "default_popup": "index.html"
+  }
+}

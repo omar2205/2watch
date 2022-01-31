@@ -1,0 +1,36 @@
+{
+  "name": "2watch",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "svelte-kit dev",
+    "build": "svelte-kit build",
+    "clean": "rm -rf /mnt/d/shared/ch_2watch",
+    "deploy": "pnpm clean && cp -rf build /mnt/d/shared/ch_2watch",
+    "package": "svelte-kit package",
+    "preview": "svelte-kit preview",
+    "check": "svelte-check --tsconfig ./tsconfig.json",
+    "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch"
+  },
+  "devDependencies": {
+    "@sveltejs/adapter-auto": "next",
+    "@sveltejs/adapter-static": "^1.0.0-next.26",
+    "@sveltejs/kit": "next",
+    "autoprefixer": "^10.4.2",
+    "postcss": "^8.4.5",
+    "postcss-load-config": "^3.1.1",
+    "prettier": "^2.5.1",
+    "prettier-plugin-svelte": "^2.6.0",
+    "svelte": "^3.44.0",
+    "svelte-check": "^2.2.6",
+    "svelte-preprocess": "^4.10.1",
+    "sveltekit-adapter-chrome-extension": "^1.0.0-next.1",
+    "tailwindcss": "^3.0.12",
+    "tslib": "^2.3.1",
+    "typescript": "^4.4.3"
+  },
+  "type": "module",
+  "dependencies": {
+    "@supabase/supabase-js": "^1.29.4",
+    "@tailwindcss/line-clamp": "^0.3.1"
+  }
+}

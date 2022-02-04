@@ -5,7 +5,7 @@
     "dev": "svelte-kit dev",
     "build": "svelte-kit build",
     "clean": "rm -rf /mnt/d/shared/ch_2watch",
-    "deploy": "pnpm clean && cp -rf build /mnt/d/shared/ch_2watch",
+    "deploy": "pnpm clean && ./deploy.sh",
     "package": "svelte-kit package",
     "preview": "svelte-kit preview",
     "check": "svelte-check --tsconfig ./tsconfig.json",

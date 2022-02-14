@@ -3,7 +3,7 @@
   import { page } from '$app/stores'
   import { goto } from '$app/navigation'
   import { supabase, getInfo, getPoster } from '$lib/db.ts'
-  import { list } from '$lib/store.ts'
+  import { list, navTitle } from '$lib/store.ts'
   import Loading from '../components/Loading.svelte'
   import Delete from '../components/Delete.svelte'
 
@@ -40,6 +40,7 @@
     state.ep = info.data.e
     state.time = info.data.t
 
+    $navTitle = info.name
     loading = false
     // console.log(info)
   })
@@ -68,8 +69,6 @@
   <Loading />
 {:else}
   <main class="p-4">
-    <h1 class="text-center text-2xl font-semibold">{info.name}</h1>
-
     <img
       class="w-48 rounded-md mx-auto my-2"
       src={info?.more?.Poster}

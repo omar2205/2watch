@@ -4,7 +4,7 @@
   import Loading from '../components/Loading.svelte'
 
   import { supabase, getInfo } from '$lib/db.ts'
-  import { list } from '$lib/store.ts'
+  import { list, navTitle } from '$lib/store.ts'
 
   const load = async () => {
     const { data, error } = await supabase
@@ -20,6 +20,7 @@
   }
 
   onMount(async () => {
+    $navTitle = '2watch'
     await load()
   })
 </script>

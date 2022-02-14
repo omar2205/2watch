@@ -4,7 +4,7 @@ const config = {
   theme: {
     extend: {},
     fontFamily: {
-      sans: ['Helvetica Now Display', 'Helvetica', 'sans-serif']
+      sans: ['Archivo', 'Helvetica', 'sans-serif']
     }
   },
 

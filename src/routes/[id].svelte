@@ -95,7 +95,7 @@
     </div>
 
     <button
-      class="rounded-md w-full p-2 my-4
+      class="uppercase rounded-md w-full p-2 my-4
 bg-violet-800 hover:bg-violet-700 
 hover:drop-shadow-xl active:bg-violet-800"
       on:click={updateData}
@@ -104,7 +104,7 @@ hover:drop-shadow-xl active:bg-violet-800"
     </button>
 
     <button
-      class="rounded-md w-full p-2 my-2
+      class="uppercase rounded-md w-full p-2 my-2
 bg-red-800/10 hover:bg-red-700 
 hover:drop-shadow-xl active:bg-red-800"
       on:click={() => (deleteAlertOpen = true)}

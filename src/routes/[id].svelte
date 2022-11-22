@@ -63,6 +63,16 @@
   }
 
   const cancel = () => (deleteAlertOpen = false)
+  
+  // reset time on episode flip (change)
+  const reset_time = () => state.time = '0:00'
+  
+  // change episode to 1 and reset time 
+  // on season change
+  const reset_all = () => {
+    state.ep = 1
+    reset_time()
+  }
 </script>
 
 {#if loading}
@@ -88,8 +98,14 @@
     <h5 class="text-xs">{info.more.Plot}</h5>
 
     <div class="update flex justify-between mt-4 text-base">
-      <input class="rounded w-24 p-2" type="number" bind:value={state.season} />
-      <input class="rounded w-24 p-2" type="number" bind:value={state.ep} />
+      <input class="rounded w-24 p-2" type="number" 
+        bind:value={state.season}
+        on:change={reset_all}
+      />
+      <input class="rounded w-24 p-2" type="number" 
+        bind:value={state.ep}
+        on:change={reset_time}
+      />
       <input class="rounded w-28 p-2" type="text" bind:value={state.time} />
     </div>
 
